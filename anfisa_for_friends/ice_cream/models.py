@@ -9,14 +9,14 @@ class Category(PublishedModel):
     output_order = models.PositiveSmallIntegerField(
         default=100,
         verbose_name='Порядок отображения'
-    ) 
+    )
 
     class Meta:
         verbose_name = 'категория'
         verbose_name_plural = 'Категории'
-
+    
     def __str__(self):
-        return self.title 
+        return self.title
 
 class Topping(PublishedModel):
     title = models.CharField(max_length=256, verbose_name='Название')
