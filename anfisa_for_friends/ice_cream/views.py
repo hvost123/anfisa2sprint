@@ -8,15 +8,13 @@ from django.shortcuts import get_object_or_404, render
 def ice_cream_detail(request, pk):
     template_name = 'ice_cream/detail.html'
     ice_cream = get_object_or_404(
-        IceCream.objects.values(
-            'title', 'description'
-        ).filter(is_published=True),
+        IceCream.objects.filter(is_published=True, category__is_published=True),
         pk=pk
     )
     context = {
         'ice_cream': ice_cream,
     }
-    return render(request, template_name, context)
+    return render(request, template_name, context)  
 
 
 
